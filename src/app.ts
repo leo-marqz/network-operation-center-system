@@ -5,7 +5,8 @@ import { Server} from './presentation/server';
 })();
 
 async function main(){
-    Server.start();
+    const url: string = 'http://localhost:3000/comments';
+    Server.start(url);
 }
 
 
