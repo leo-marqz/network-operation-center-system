@@ -1,0 +1,84 @@
+# === Node core ===
+node_modules/
+dist/
+build/
+temp/
+.tmp/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === TypeScript ===
+*.tsbuildinfo
+*.d.ts.map
+*.js.map
+
+# === Environment / Secrets ===
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*
+!.env.example   # Keep example env for reference
+
+# === Logs & Reports ===
+logs/
+coverage/
+.nyc_output/
+report/
+reports/
+*.lcov
+*.log
+
+# === Cache ===
+.cache/
+.eslintcache
+.turbo/
+.vscode-test/
+.jest-cache/
+.jest-test-results.json
+
+# === IDEs & OS ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Package Managers ===
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# === Misc build artifacts ===
+out/
+lib/
+public/
+.DS_Store
+*.tgz
+*.zip
+
+# === Test artifacts ===
+test-results/
+coverage-final.json
+
+# === Prisma / Migrations (if used) ===
+prisma/dev.db
+prisma/migrations/
+
+# === OneDrive / cloud sync temp ===
+~$*
+*.tmp
+*.bak
+
+# === Custom project folders ===
+/Files/
+/Uploads/
+/Backups/
+/Exports/
+/temp_data/
