@@ -18,7 +18,8 @@
     // See also https://aka.ms/tsconfig/module
     "module": "commonjs", //custom
     "target": "es2024", //custom
-    "types": [],
+    "types": ["node"], //nos ayuda a reconocer las librerias de node
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

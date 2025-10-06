@@ -4,6 +4,7 @@ import color from 'picocolors';
 // import { CronJob } from 'cron';
 import { CronService } from './cron/cron.service';
 import { CheckService } from '../domain/use-cases/checks/check.service';
+import { FileSystemDatasource } from '../infrastructure/datasources/file-system.datasource';
 
 export class Server {
 
@@ -18,6 +19,8 @@ export class Server {
             )
             .execute(url);
         });
+
+        new FileSystemDatasource();
 
     }
 
