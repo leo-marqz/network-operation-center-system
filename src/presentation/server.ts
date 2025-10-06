@@ -8,6 +8,11 @@ import { FileSystemDatasourceImpl } from '../infrastructure/datasources/filesyst
 const fileSystemLogRepository = new LogRepositoryImpl( 
     new FileSystemDatasourceImpl() 
 );
+
+/**
+ * @author Elmer Marquez (leomarqz | ::crack::night)
+ */
+
 export class Server {
 
     public static start(url: string){
