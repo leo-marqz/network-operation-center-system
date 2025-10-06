@@ -10,7 +10,7 @@ const fileSystemLogRepository = new LogRepositoryImpl(
 );
 
 /**
- * @author Elmer Marquez (leomarqz | ::crack::night)
+ * @author Elmer Marquez ( leomarqz | ::crack::night:: )
  */
 
 export class Server {
