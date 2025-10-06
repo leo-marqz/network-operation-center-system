@@ -5,7 +5,7 @@ import { Server} from './presentation/server';
 })();
 
 async function main(){
-    const url: string = 'http://localhost:3000/comments';
+    const url: string = 'https://www.google.com';
     Server.start(url);
 }
 
