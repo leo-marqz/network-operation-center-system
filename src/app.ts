@@ -1,3 +1,6 @@
+
+import { envs } from './config/plugins/envs.plugin';
+
 import { Server} from './presentation/server';
 
 (async ()=>{
@@ -6,6 +9,9 @@ import { Server} from './presentation/server';
 
 async function main(){
     const url: string = 'https://www.google.com';
+
+    // console.log({ environment: envs.ENVIRONMENT, port: envs.PORT, mailerEmail: envs.MAILER_EMAIL });
+
     Server.start(url);
 }
 
