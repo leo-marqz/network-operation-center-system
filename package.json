@@ -33,6 +33,7 @@
     "cron": "^4.3.3",
     "dotenv": "^17.2.3",
     "env-var": "^7.5.0",
+    "nodemailer": "^7.0.9",
     "picocolors": "^1.1.1"
   }
 }

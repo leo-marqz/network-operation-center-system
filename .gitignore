@@ -21,7 +21,7 @@ pnpm-debug.log*
 .env.development
 .env.production
 .env.test
-.env.*
+# .env.template -> se permitira pero sin llevar valores reales solo algunos de ejemplo
 !.env.example   # Keep example env for reference
 
 # === Logs & Reports ===
