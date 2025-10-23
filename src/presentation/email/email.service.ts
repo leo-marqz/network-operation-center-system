@@ -2,14 +2,18 @@
 import nodemailer from 'nodemailer';
 import { envs } from '../../config/plugins/envs.plugin';
 
-export interface SendMailOptions {
-    to: string;
-    subject: string;
-    htmlBody: string;
-    //todo: attachments?: any[];
+export interface Attachment {
+    filename: string;
+    path: string;
 }
 
-//todo: Attachment
+export interface SendMailOptions {
+    to: string | string[];
+    subject: string;
+    htmlBody: string;
+    attachments?: Attachment[]; 
+}
+
 
 export class EmailService {
     
@@ -22,17 +26,32 @@ export class EmailService {
     });
 
     async sendEmail(options: SendMailOptions ): Promise<boolean> {
-        const { to, subject, htmlBody } = options;
+        const { to, subject, htmlBody, attachments = [] } = options;
         try{
             const sendInformation = await this.transporter.sendMail({
-                to,
-                subject,
-                html: htmlBody
+                to: to,
+                subject: subject,
+                html: htmlBody,
+                attachments: attachments
             });
+
+            console.log(`Sending... ${sendInformation.response}`);
 
             return true;
         }catch(error){
             return false;
         }
+    }
+
+    async sendEmailWithFileSystemLogs( to: string | string[] ): Promise<boolean> {
+        const subject = 'Logs de sistema - NOC System';
+        const htmlBody = `
+        <h3>Test - NOC System - Los del Servicio</h3>
+        <a href="#">Ver archivo de logs</a>
+        `;
+
+        const attachments: Attachment[] = [ { filename: 'all.log', path: './logs/all.log' } ];
+        
+        return await this.sendEmail( { to, subject, htmlBody, attachments } );
     }
 }

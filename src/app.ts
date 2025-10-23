@@ -13,14 +13,7 @@ async function main(){
 
     const emailService = new EmailService();
 
-    emailService.sendEmail({
-        to: 'leomarqz2020@gmail.com',
-        subject: 'Logs de sistema - NOC System',
-        htmlBody: `
-        <h3>Test - NOC System - Alerta de Servicio Desconectado</h3>
-        <a href="#">Ver logs</a>
-        `
-    });
+    // emailService.sendEmailWithFileSystemLogs( ['leomarqz2020@gmail.com', 'leomarqz.main@gmail.com'] );
     
     Server.start(url);
 }
