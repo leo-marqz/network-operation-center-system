@@ -1,5 +1,6 @@
 
 import { envs } from './config/plugins/envs.plugin';
+import { EmailService } from './presentation/email/email.service';
 
 import { Server} from './presentation/server';
 
@@ -10,8 +11,17 @@ import { Server} from './presentation/server';
 async function main(){
     const url: string = 'https://www.google.com';
 
-    // console.log({ environment: envs.ENVIRONMENT, port: envs.PORT, mailerEmail: envs.MAILER_EMAIL });
+    const emailService = new EmailService();
 
+    emailService.sendEmail({
+        to: 'leomarqz2020@gmail.com',
+        subject: 'Logs de sistema - NOC System',
+        htmlBody: `
+        <h3>Test - NOC System - Alerta de Servicio Desconectado</h3>
+        <a href="#">Ver logs</a>
+        `
+    });
+    
     Server.start(url);
 }
 
