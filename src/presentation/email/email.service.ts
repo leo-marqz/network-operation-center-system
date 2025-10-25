@@ -1,6 +1,8 @@
 
 import nodemailer from 'nodemailer';
 import { envs } from '../../config/plugins/envs.plugin';
+import { LogRepository } from '../../domain/repositories/log.repository';
+import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
 
 export interface Attachment {
     filename: string;
@@ -16,6 +18,8 @@ export interface SendMailOptions {
 
 
 export class EmailService {
+
+    constructor() { }
     
     private transporter = nodemailer.createTransport({
         service: envs.MAILER_SERVICE,
@@ -34,9 +38,6 @@ export class EmailService {
                 html: htmlBody,
                 attachments: attachments
             });
-
-            console.log(`Sending... ${sendInformation.response}`);
-
             return true;
         }catch(error){
             return false;
@@ -47,10 +48,13 @@ export class EmailService {
         const subject = 'Logs de sistema - NOC System';
         const htmlBody = `
         <h3>Test - NOC System - Los del Servicio</h3>
-        <a href="#">Ver archivo de logs</a>
+        <a href="#">Ver archivos de logs</a>
         `;
 
-        const attachments: Attachment[] = [ { filename: 'all.log', path: './logs/all.log' } ];
+        const attachments: Attachment[] = [ 
+            { filename: 'all.log', path: './logs/all.log' },
+            { filename: 'errors-high.log', path: './logs/logs-high.log' }
+        ];
         
         return await this.sendEmail( { to, subject, htmlBody, attachments } );
     }

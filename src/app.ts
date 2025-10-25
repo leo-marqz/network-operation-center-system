@@ -10,11 +10,6 @@ import { Server} from './presentation/server';
 
 async function main(){
     const url: string = 'https://www.google.com';
-
-    const emailService = new EmailService();
-
-    // emailService.sendEmailWithFileSystemLogs( ['leomarqz2020@gmail.com', 'leomarqz.main@gmail.com'] );
-    
     Server.start(url);
 }
 
