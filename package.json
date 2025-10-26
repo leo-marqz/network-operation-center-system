@@ -4,6 +4,9 @@
   "description": "NOC System",
   "main": "index.js",
   "type": "commonjs",
+  "engines": {
+    "node": "22.20.0"
+  },
   "scripts": {
     "dev": "tsnd --respawn --clear src/app.ts",
     "dev:v2": "ts-node-dev --transpile-only --respawn src/app.ts",

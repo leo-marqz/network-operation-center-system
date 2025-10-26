@@ -7,10 +7,11 @@ El objetivo es crear una serie de tareas usando Arquitectura Limplia (Clean Code
 2. Configurar las variables de entorno.
 
 ```
-PORT=
+PORT=3000
 ENVIRONMENT=development
-DEBUG=
+DEBUG=false
 
+MAILER_SERVICE=gmail
 MAILER_EMAIL=
 MAILER_SECRET_KEY=
 ```
