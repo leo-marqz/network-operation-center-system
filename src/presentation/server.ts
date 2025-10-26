@@ -29,7 +29,7 @@ export class Server {
 
         console.log(`${color.green('[INFO]')} Cron service is running...\n`);
 
-        CronService.createJob('*/2 * * * * *', ()=>{
+        CronService.createJob('*/1 * * * * ', ()=>{
             new CheckService(
                 fileSystemLogRepository,
                 ()=> console.log(`${color.green('[OK]')} ${new Date().toUTCString()} | ${url}` ),

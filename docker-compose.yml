@@ -1,0 +1,21 @@
+
+version: '3'
+
+services:
+# Nombre del servicio que se ejecutara con docker 
+  mongodb_instance:
+  # la ultima version mas estable de mongodb
+    image: mongo:latest
+    restart: always
+    environment:
+    # Credenciales para iniciar sesion en la base de datos mongodb
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    volumes:
+    # Esto nos permitiria tener una carpeta dentro de nuestro proyecto
+    # en la cual podemos almacenar nuestros datos y tenerlos listos
+    # aun si destruimos nuestra instancia de base de datos mongodb en docker
+      - ./mongo:/data/db
+    ports:
+    # puerto externo : puerto interno
+      - 27017:27017
